@@ -1,188 +1,320 @@
+/* CSS Variables cho dễ maintain */
+:root {
+  --primary-bg: #ecf0f1;
+  --sidebar-bg: linear-gradient(135deg, #2c3e50, #34495e);
+  --button-bg: linear-gradient(135deg, #34495e, #1abc9c);
+  --button-hover: linear-gradient(135deg, #1abc9c, #16a085);
+  --text-color: #2c3e50;
+  --text-light: #ecf0f1;
+  --accent: #3498db;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
 /* Tổng thể */
 body {
-    margin: 0;
-    background-color: grey;
-    font-family: 'Times New Roman', Times, serif;
-    display: flex; /* Đặt sidebar và main nằm cạnh nhau */
+  margin: 0;
+  background-color: var(--primary-bg);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px; /* Base font-size, responsive via rem */
+  line-height: 1.6;
+  color: var(--text-color);
+  display: flex;
+  transition: var(--transition);
 }
 
 /* Sidebar bên trái */
 .sidebar {
-    position: fixed;
-    width: 200px;
-    background-color: #2c3e50;
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Tăng width cho desktop */
+  height: 100vh;
+  background: var(--sidebar-bg);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+  z-index: 100;
+  transform: translateX(0); /* Default: visible */
+  transition: var(--transition);
 }
 
 /* Nút trong sidebar */
 .sidebar button {
-    width: 120px;
-    padding: 10px;
-    background-color: #34495e;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
+  width: 80%;
+  max-width: 180px;
+  padding: 12px 20px;
+  background: var(--button-bg);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  position: relative;
 }
+
 .sidebar button:hover {
-    background-color: #1abc9c;
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip cho nút (dựa trên code cũ, cải thiện) */
+.sidebar button:nth-child(1)::after {
+  content: "Chatbot";
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-light);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 101;
+}
+
+.sidebar button:nth-child(2)::after {
+  content: "Văn mẫu";
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-light);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 101;
+}
+
+.sidebar button:nth-child(3)::after {
+  content: "Chế độ tập trung";
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-light);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 101;
+}
+
+.sidebar button:nth-child(4)::after {
+  content: "Thư viện cảm hứng";
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-light);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 101;
+}
+
+.sidebar button:hover::after {
+  opacity: 1;
 }
 
 /* Phần chính */
 .main {
-    margin-left: 200px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #ecf0f1;
+  margin-left: 250px; /* Match sidebar width */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-bg);
+  min-height: 100vh;
+  transition: var(--transition);
 }
 
 /* Thanh tìm kiếm */
 .search {
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 /* Ô tìm kiếm */
 .search input {
-    width: 60%;
-    padding: 10px 14px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    outline: none;
-    transition: 1s;
+  width: 70%;
+  max-width: 500px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: var(--transition);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.search input:focus::placeholder {
+  opacity: 0;
+}
+
 .search input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 10px rgba(52,152,219,0.6);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
 }
 
 /* Nội dung chính */
 .content {
-    padding: 20px;
-    scrollbar-width: 75px;
-}
-#mot-so-bai-van-mau {
-    scroll-margin-top: 75px;
-}
-button {
-    position: relative; /* để ::after định vị theo nút */
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
 }
 
-/* Tạo dòng chữ nằm DƯỚI nút */
-.siderbar button:nth-child(1)::after {
-    content: "Phân tích bài viết";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -30px; /* khoảng cách dưới nút */
-    background: #222;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-}
-.sidebar button:nth-child(2)::after {
-    content: "Tác phẩm văn học";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -30px; /* khoảng cách dưới nút */
-    background: #222;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
+.content h1, .content h2 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
-/* Khi hover thì hiện */
-button:hover::after {
-    opacity: 1;
-}
-.an {
-  opacity: 0;
-  visibility: hidden;       /* Ẩn hoàn toàn, không chiếm chỗ */
-  width: 0;                 
-  display: inline-block;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
+.content p {
+  margin-bottom: 1rem;
+  text-align: justify;
 }
 
-button:hover .an {
-  opacity: 1;
-  visibility: visible;
-  width: auto;              /* Trả lại độ rộng tự nhiên */
-  margin-left: 6px;
-}
+/* Select boxes */
 .chon {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
 }
+
 .electric {
-    border: 1px solid gold;
-    background-color: black;
-    color: white;
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  border: 2px solid gold;
+  background-color: #000;
+  color: #fff;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
 }
-body.dark, 
-body.dark *{
-  background-color: black !important;
-  color: white !important;
-  transition: background-color 0.5s ease, color 0.5s ease;
+
+.electric:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
 }
-#che-do-tap-trung {
-    scroll-margin-top: 75px;
+
+/* Buttons chung */
+button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--button-bg);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  box-shadow: var(--shadow);
 }
+
+button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Textarea */
 #vungviet {
-    margin-top: 10px;
-    width: 90%;
-    height: 500px;
-    border: 10px;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+  border: 2px solid #ccc;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: var(--transition);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-#thu-vien-cam-hung {
-    scroll-margin-top: 75px;
+
+#vungviet:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
 }
+#vungviet:focus::placeholder{
+  opacity: 0;
+}
+/* Dark mode */
+body.dark {
+  --primary-bg: #1a1a1a;
+  --text-color: #f0f0f0;
+  --text-light: #333;
+  --sidebar-bg: linear-gradient(135deg, #333, #555);
+  --button-bg: linear-gradient(135deg, #555, #777);
+  --button-hover: linear-gradient(135deg, #777, #999);
+}
+
+body.dark .search {
+  background-color: #333;
+}
+
+body.dark .electric {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+/* Footer */
 .site-footer {
-  background: #222;
+  background: linear-gradient(135deg, #222, #333);
   color: #eee;
   padding: 30px 20px;
   text-align: center;
   margin-top: 40px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .footer-content {
   max-width: 900px;
   margin: auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .author-info {
@@ -198,18 +330,23 @@ body.dark *{
   height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
+  transition: var(--transition);
+}
+
+.author-avatar:hover {
+  transform: scale(1.05);
 }
 
 .author-info h3 {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: #fff;
 }
 
 .author-info p {
   margin: 5px 0 0;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: #ccc;
 }
 
@@ -222,14 +359,127 @@ body.dark *{
   color: #4db8ff;
   text-decoration: none;
   font-weight: bold;
+  transition: var(--transition);
 }
 
 .footer-links a:hover {
   text-decoration: underline;
+  color: #fff;
 }
 
 .copyright {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   color: #aaa;
   margin-top: 10px;
+}
+
+/* Scroll margins cho anchor links */
+#mot-so-bai-van-mau,
+#che-do-tap-trung,
+#thu-vien-cam-hung {
+  scroll-margin-top: 100px;
+}
+
+/* Media Queries cho Responsive */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+  .main {
+    margin-left: 220px;
+  }
+  .content {
+    padding: 15px;
+  }
+  .chon {
+    flex-direction: column;
+  }
+  .electric {
+    min-width: 100%;
+  }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transform: translateX(-100%); /* Ẩn sidebar mặc định */
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+  }
+  .sidebar button {
+    width: auto;
+    flex: 1;
+    margin: 5px;
+  }
+  .main {
+    margin-left: 0;
+  }
+  .search {
+    padding: 10px;
+  }
+  .search input {
+    width: 90%;
+  }
+  .content {
+    padding: 10px;
+  }
+  .chon {
+    flex-direction: column;
+  }
+  .electric {
+    min-width: 100%;
+  }
+  #vungviet {
+    height: 300px;
+  }
+  .footer-content {
+    flex-direction: column;
+  }
+  .author-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-links a {
+    margin: 5px;
+  }
+}
+
+/* Small mobile (<480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  .sidebar button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .search input {
+    width: 95%;
+    padding: 10px;
+  }
+  .content h1 {
+    font-size: 1.5rem;
+  }
+  .content h2 {
+    font-size: 1.3rem;
+  }
+  #vungviet {
+    height: 250px;
+    padding: 10px;
+  }
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+  }
 }

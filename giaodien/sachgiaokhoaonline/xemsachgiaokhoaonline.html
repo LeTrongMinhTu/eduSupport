@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thư viện Sách Giáo Khoa Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+    }
+    header {
+      background: #1e88e5;
+      color: white;
+      padding: 16px 24px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav {
+      background: #1565c0;
+      padding: 10px 24px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    nav button:hover {
+      background: #e3f2fd;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: calc(100vh - 104px);
+    }
+    .sidebar {
+      background: #ffffff;
+      border-right: 1px solid #ddd;
+      padding: 16px;
+    }
+    .sidebar h2 {
+      font-size: 18px;
+      margin-top: 0;
+    }
+    .book {
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    .book:hover {
+      background: #f1f1f1;
+    }
+    .viewer {
+      padding: 16px;
+    }
+    .viewer h2 {
+      margin-top: 0;
+    }
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 12px;
+      background: #eeeeee;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Thư viện Sách Giáo Khoa Online</h1>
+    <p>Xem sách giáo khoa trực tuyến – Học tập mọi lúc, mọi nơi</p>
+  </header>
+
+  <nav>
+    <button onclick="filterGrade('6')">Lớp 6</button>
+    <button onclick="filterGrade('7')">Lớp 7</button>
+    <button onclick="filterGrade('8')">Lớp 8</button>
+    <button onclick="filterGrade('9')">Lớp 9</button>
+    <button onclick="filterGrade('all')">Tất cả</button>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Danh sách sách</h2>
+      <!--LOP6-->
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1aBpnh-D7w_DYxwTP4eRKPuKkTxUa0oRo/preview')">📘 Toán 6 tập 1 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1c-Icq55mD7n2PwviSbd1_FUwySyQhFZV/preview')">📘 Toán 6 tập 2 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1zTxbB5PtbDVLaBPmO28hpOERd1FxgGeY/preview')">📘 Tiếng Anh 6 tập 1 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1WKmj2FhcRFbD_nrhJBRs3IrUkhp9Bfc2/preview')">📘 Tiếng Anh 6 tập 2 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/17a0QzFkyyfFbwp1z6P1LzkEDJBOv3NOL/preview')">📘 Văn 6 tập 1 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1RNG3fLuQ3lyuc9FJlB24VkmORQIwvwjW/preview')">📘 Văn 6 tập 2 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1wNeeSHpBRvdEwFBeYJV9Y6w4CTaZB2wY/preview')">📘 Khoa học tự nhiên 6 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/19r-hrQ7-j-7ilZ2iMrEWnV7qoKNxWwJ1/preview')">📘 Lịch sử địa lí 6 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1c4paZZaz7HTNGgcNEvKhESNRPqsc3t2J/preview')">📘 Tin học 6</div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/12CdnfnVT-c8ejrYv_GTHnVJ_DUe8KqgJ/preview')">📘 Giáo dục công dân 6 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1tkxc-p-lL6HzSnqXOP3p-gIgkKdkx5ci/preview')">📘 Công nghệ 6 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1MQC_ZKRrtPjIOBKRGoE11LKfRwv9Q000/preview')">📘 Âm nhạc 6 </div>
+      <div class="book" data-grade="6" onclick="openBook('Toan 6','https://drive.google.com/file/d/1kN3rkmlIPdocFrrcjvxGz7TeVKXRTr7J/preview')">📘 Hoạt động trải nghiệm - hướng nghiệp 6 </div>
+      <!--LOP7-->
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1sfwxOfXR8tZpkAVsb6Vn3yjQd6WibYuq/preview')">📘 Toán 7 tập 1 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1ImItvukcZ96MdHd1zfUQ9JoURsEChbm5/preview')">📘 Toán 7 tập 2 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1CS209-LscIgsIG7pe4BmMog3zWClolZI/preview')">📘 Tiếng Anh 7 tập 1 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1GHUqBqpzxXG-x4BGk7OdMAL5_4W7E8fo/preview')">📘 Văn 7 tập 1 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1zxFBxfEj3u1eoTkVPpHU3H1lkqtBgDFl/preview')">📘 Văn 7 tập 2 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1ev-9QE4hmEgcrPmST56o_vS1cASNBs_y/preview')">📘 Khoa học tự nhiên 7 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1Svf2WkhTWAbt6WVWchVi-m2rT0ZzbHm-/preview')">📘 Lịch sử địa lí 7 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1qo-JB6rnfPNbl9th3pMC1pU9OPdQTyeL/preview')">📘 Tin học 7</div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1wb-KyDiDetfQsqdzc31jKwdLUa6E85Ku/preview')">📘 Giáo dục công dân 7 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1c3y31YtPJYVtIptZEkm7WDDuSo8Xg0vt/preview')">📘 Công nghệ 7 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/12qPiSYiYIQyPVFDLdF4OLmdLNeXxphc8/preview')">📘 Âm nhạc 7 </div>
+      <div class="book" data-grade="7" onclick="openBook('Toan 7','https://drive.google.com/file/d/1hB_wKhL5QUGn8OCTMOD49NYrZ6li3lJT/preview')">📘 Hoạt động trải nghiệm - hướng nghiệp 7 </div>
+      <!--LOP8-->
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1D2lMRZtXOKjSAr_5DgBrDpDMxgCHvnag/preview')">📘 Toán 8 tập 1 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1Wpnyxu6qrIwHd0rRNb4OdpXG-o6pSMV7/preview')">📘 Toán 8 tập 2 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1YYcUcVPv09PFhLHx_fD41RxzofEIKs40/preview')">📘 Tiếng Anh 8  </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1FJemQb6EejJCQWIUt7QZRpg6rSPi9cpp/preview')">📘 Văn 8 tập 1 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1TjpiNSaynPafsMFwvcQwgTaVdQbNAPpU/preview')">📘 Văn 8 tập 2 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1Rx2I-kvP1skGcygGxU6Em1ZFRTYUmaz2/preview')">📘 Khoa học tự nhiên 8 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1pJYMUmKGd2BGk9tMRUqWZEH_rthcD3Wt/preview')">📘 Lịch sử địa lí 8 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1InMo9nTn6stYSwnnjshYQc2d3Rn1Tjxk/preview')">📘 Tin học 8</div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1GciRHbsoifD1g4rTO4zKwDmhgq3XxQLj/preview')">📘 Giáo dục công dân 8 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1I1VquUd6-9S9SG6mIFtGWL0V5d8CjooG/preview')">📘 Công nghệ 8 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1-XRydEZ0fdUHgm7i2pU8yxh5pJYEMMY3/preview')">📘 Âm nhạc 8 </div>
+      <div class="book" data-grade="8" onclick="openBook('Toan 8','https://drive.google.com/file/d/1kN3rkmlIPdocFrrcjvxGz7TeVKXRTr7J/preview')">📘 Hoạt động trải nghiệm - hướng nghiệp 8 </div>
+      <!--LOP9-->
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1ySmx9lk44YAyNHVQnmsvj3_jOMlkwgwE/preview')">📘 Toán 9 tập 1 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/18PFTCdiHAKJfGPI07ZAgvgCJrut50WT7/preview')">📘 Toán 9 tập 2 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1F9oaEsbt7iZil30gSc0Her1TfWfnfgh3/preview')">📘 Tiếng Anh 9 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1RfA3KHfShWecv4mOWun5T0DnTeYBfwN-/preview')">📘 Văn 9 tập 1 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/19c0Z0GVYhckpxZTImR_vjo6RJNBCbrcK/preview')">📘 Văn 9 tập 2 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','')">📘 Khoa học tự nhiên 9 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','')">📘 Lịch sử địa lí 9 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1H3BtGRnFdaU3Pq92fpU_91ECBMZWDkn0/preview')">📘 Tin học 9</div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1EZjlJ7AX9KmepxNCccC4JziXswLRW69t/preview')">📘 Giáo dục công dân 9 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/19_YvxzIFb9VTpNESNSCHw405ugic19py/preview')">📘 Công nghệ 9 (Chế biến thực phẩm)</div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1T71OSUzvqRZI2j5K0LVyD2ixdauthSOj/preview')">📘 Công nghệ 9 (Định hướng nghề nghiệp)</div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1JVUxtGOn_hzdQtbKYq4190_uB0jR5jq9/preview')">📘 Công nghệ 9 (Lắp đặt mạng điện trong nhà)</div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1T0joI0qjHxN-k6xLDKWH6KV7b6Qiw-VV/preview')">📘 Công nghệ 9 (Trồng cây ăn quả)</div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1fLKNqdw7lyrg45WAYgLGni6e-rvS2rzG/preview')">📘 Âm nhạc 9 </div>
+      <div class="book" data-grade="9" onclick="openBook('Toan 9','https://drive.google.com/file/d/1QyLUoTXN-t_1y15sGjKCIg9r-GurCK3w/preview')">📘 Hoạt động trải nghiệm - hướng nghiệp 9 </div>
+    </aside>
+
+    <main class="viewer">
+      <h2 id="bookTitle">Chọn một cuốn sách để đọc</h2>
+      <iframe id="bookFrame" src="" title="Xem sách"></iframe>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 – Website học tập | Phục vụ học sinh THCS
+  </footer>
+
+  <script>
+    function openBook(title, url) {
+      document.getElementById('bookTitle').innerText = title;
+      document.getElementById('bookFrame').src = url;
+    }
+
+    function filterGrade(grade) {
+      const books = document.querySelectorAll('.book');
+      books.forEach(book => {
+        if (grade === 'all' || book.dataset.grade === grade) {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

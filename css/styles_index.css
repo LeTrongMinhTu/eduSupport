@@ -11,6 +11,12 @@ body {
   line-height: 1.6;
 }
 
+#tim_hieu_chung, #huong_dan_su_dung, #giao_dien_chinh,
+ #feedback, #xem_sgk_online, #lap_tkb, #lap_ghi_chu, 
+ #tong_hop_kien_thuc_cac_mon, #cau_hoi {
+  scroll-margin-top: 80px;
+}
+
 h1, h2, h3 {
   font-weight: 500;
 }

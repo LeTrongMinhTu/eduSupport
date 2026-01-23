@@ -126,16 +126,78 @@
         .description:hover {
             opacity: 0.9;
         }
-        footer {
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, #222, #333);
+            color: #eee;
+            padding: 30px 20px;
             text-align: center;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            margin-top: 50px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            transition: var(--transition);
+        }
+
+        .author-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .author-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
             color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .author-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .footer-links {
+            margin: 15px 0;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #4db8ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 10px;
         }
         /* Keyframes cho animation */
         @keyframes fadeIn {
@@ -301,8 +363,28 @@
         
         <!-- Thêm các môn khác nếu cần -->
         
-        <footer>
-            <p>&copy; 2023 Gợi ý Học Tập. Tất cả quyền được bảo lưu.</p>
+        <footer class="site-footer">
+            <div class="footer-content">
+            <div class="author-info">
+                <img src="../asset/image/ảnh tác giả.jpg" 
+                    alt="Tác giả" 
+                    class="author-avatar"
+                    width = 20%
+                    height = 7.5%
+                >
+                <div>
+                <h3>Lê Trọng Minh Tú</h3>
+                <p>Học sinh yêu thích Toán và Tin học.  
+                Xây dựng website học tập cấp 2.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=letrongminhtu@gmail.com" target="_blank">📧 Email</a>
+                <a href="https://github.com/LeTrongMinhTu" target="_blank">💻 GitHub</a>
+                <a href="https://www.facebook.com/minhtu.letrong.9?locale=vi_VN" target="_blank">🌐 Facebook</a>
+            </div>
+            <p class="copyright">© 2025 Minh Tú. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 

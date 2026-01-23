@@ -30,3 +30,42 @@ function toggleMusic() {
     if (musicBtn) musicBtn.innerText = "🔇";
   }
 }
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    handleSearch();
+  }
+});
+
+function handleSearch() {
+  const value = searchInput.value
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "");
+
+  const map = {
+    "mởđầu": "mo-dau",
+    "mobai": "mo-dau",
+
+    "vănmẫu": "mot-so-bai-van-mau",
+    "vanmau": "mot-so-bai-van-mau",
+
+    "tậptrung": "che-do-tap-trung",
+    "taptrung": "che-do-tap-trung",
+
+    "cảmhứng": "thu-vien-cam-hung",
+    "camhung": "thu-vien-cam-hung",
+
+    "chatbot": "ptbv"
+  };
+
+  if (map[value]) {
+    document
+      .getElementById(map[value])
+      .scrollIntoView({ behavior: "smooth" });
+  } else {
+    alert("Không tìm thấy nội dung phù hợp");
+  }
+}
+

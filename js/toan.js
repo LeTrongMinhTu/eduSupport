@@ -1,6 +1,6 @@
 // toan.js
 //Search
-function handleSearch() {
+function handleSearch(e) {
     const search = document.getElementById("search");
     const valueSearch = search.value
         .trim()
@@ -11,16 +11,39 @@ function handleSearch() {
         valueSearch === "phươngtrìnhbậcnhất" ||
         valueSearch === "phuongtrinhbacnhat"
     ) {
+        e.preventDefault();
         document
             .getElementById("ptbn_place")
             .scrollIntoView({ behavior: "smooth" });
-    } else {
-        alert("Không tìm thấy nội dung");
+    } 
+    if (
+        valueSearch === "phươngtrìnhbậchai" ||
+        valueSearch === "phuongtrinhbachai"
+    ) {
+        e.preventDefault();
+        document
+            .getElementById("ptbh_place")
+            .scrollIntoView({ behavior: "smooth" });
+    }
+    if (
+        valueSearch === "bất phương trình bậc nhất" ||
+        valueSearch === "batphuongtrinhbacnhat"
+    ) {
+        e.preventDefault();
+        document
+            .getElementById("bptbn_place")
+            .scrollIntoView({ behavior: "smooth" });
+    }
+    if (
+        valueSearch === "bất phương trình bậc hai" ||
+        valueSearch === "batphuongtrinhbachai"
+    ) {
+        e.preventDefault();
+        document
+            .getElementById("bptbh_place")
+            .scrollIntoView({ behavior: "smooth" });
     }
 }
-
-
-
 // Hàm giải phương trình bậc nhất: ax + b = c
 function solveLinear(a, b, c) {
     if (a === 0) {

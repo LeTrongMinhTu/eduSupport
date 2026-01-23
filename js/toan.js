@@ -1,4 +1,25 @@
 // toan.js
+//Search
+function handleSearch() {
+    const search = document.getElementById("search");
+    const valueSearch = search.value
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "");
+
+    if (
+        valueSearch === "phươngtrìnhbậcnhất" ||
+        valueSearch === "phuongtrinhbacnhat"
+    ) {
+        document
+            .getElementById("ptbn_place")
+            .scrollIntoView({ behavior: "smooth" });
+    } else {
+        alert("Không tìm thấy nội dung");
+    }
+}
+
+
 
 // Hàm giải phương trình bậc nhất: ax + b = c
 function solveLinear(a, b, c) {

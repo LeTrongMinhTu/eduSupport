@@ -39,6 +39,14 @@ button:hover {
 /* ===== NAVBAR_BTN =====*/
 .navbar-btn {
   background: #1e1e1e;
+  font-size: 1.2rem;
+}
+/* ===== HAMBURGER =====*/
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
 }
 
 /* ===== NAVBAR ===== */
@@ -56,8 +64,6 @@ button:hover {
   gap: 10px;
   margin: 0;
   padding: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* ===== HEADER ===== */
@@ -166,29 +172,38 @@ footer {
 }
 
 @media (max-width: 768px) {
-
-  main button {
-    width: 100%;
-  }
-
-  .navbar button {
-    width: auto;
-    padding: 8px 14px;
+  .hamburger {
+    display: block;
+    text-align: right;
+    padding: 10px 16px;
   }
 
   .navbar ul {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: none; /* ẨN MENU */
+    flex-direction: column;
+    align-items: center;
+    background: #1e1e1e;
+    padding-bottom: 15px;
   }
+
+  .navbar ul.active {
+    display: flex; /* HIỆN KHI BẬT */
+  }
+
   .navbar button {
     background: transparent;
     color: #90caf9;
     border-radius: 999px;
-    }
+    width: auto;
+  }
 
-    .navbar button:hover {
+  .navbar button:hover {
     background: rgba(144, 202, 249, 0.15);
-    }
+  }
+
+  main button {
+    width: 100%;
+  }
 }
+
 

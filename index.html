@@ -12,11 +12,13 @@
 <script src="js/script.js" defer></script>
 <body>
     <nav class="navbar">
-        <ul>
-            <li><a href = "#tim_hieu_chung" ><button class="navbar-btn" style = "width: auto;">Tìm hiểu chung</button></a></li>
-            <li><a href = "#huong_dan_su_dung"><button class="navbar-btn" style = "width: auto;">Hướng dẫn sử dụng</button></a></li>
-            <li><a href = "#giao_dien_chinh"><button class="navbar-btn" style = "width: auto;">Giao diện chính</button></a></li>
-            <li><a href = "#feedbackForm"><button class="navbar-btn" style = "width: auto;">Feedback</button></a></li>
+        <div class="hamburger" id="hamburger">☰</div>
+
+        <ul id="navList">
+            <li><a href="#tim_hieu_chung"><button class="navbar-btn">Tìm hiểu chung</button></a></li>
+            <li><a href="#huong_dan_su_dung"><button class="navbar-btn">Hướng dẫn sử dụng</button></a></li>
+            <li><a href="#giao_dien_chinh"><button class="navbar-btn">Giao diện chính</button></a></li>
+            <li><a href="#feedbackForm"><button class="navbar-btn">Feedback</button></a></li>
         </ul>
     </nav>
     <header>
@@ -101,7 +103,7 @@
                 <div class="progress-container">
                 <div id="progress-bar"></div>
                 </div>
-                <button onclick="resetProgress()">🔄 Làm lại từ đầu</button>
+                <button style = "margin: 10px;"onclick="resetProgress()">🔄 Làm lại từ đầu</button>
             </div>
         </section>
 
@@ -123,5 +125,13 @@
         </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navList = document.getElementById("navList");
+
+        hamburger.addEventListener("click", () => {
+            navList.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
